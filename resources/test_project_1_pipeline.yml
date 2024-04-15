@@ -1,0 +1,12 @@
+# The main pipeline for test_project_1
+resources:
+  pipelines:
+    test_project_1_pipeline:
+      name: test_project_1_pipeline
+      target: test_project_1_${bundle.environment}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: /Workspace/${workspace.file_path}/src
